@@ -10,11 +10,14 @@ import java.util.List;
  * @since 6/22/2022
  */
 @Entity
-public class Book extends Document{
+public class Book extends Document {
 
     @Column(name = "AUTORS")
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
+
+    @ManyToMany
+    private List<Reservation> reservations;
 
     public Book() {
     }
@@ -25,5 +28,13 @@ public class Book extends Document{
 
     public void setAuthors(List<Author> authors) {
         this.authors = authors;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
