@@ -46,7 +46,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<AuthorDTO> getAuthorList() {
-        return null;
+        return modelMapperUtil.mapToDto(authorRepository.findAll());
     }
 
     @Override
