@@ -1,6 +1,8 @@
 package com.libre.controller;
 
 import com.libre.dto.AuthorDTO;
+import com.libre.exception.ApiException;
+import com.libre.exception.ApiRequestException;
 import com.libre.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,7 +39,12 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AuthorDTO> getAuthor(@PathVariable Long id) {
-        return new ResponseEntity<>(authorService.getAuthor(id), HttpStatus.OK);
+
+        try {
+            return new ResponseEntity<>(authorService.getAuthor(id), HttpStatus.OK);
+        } catch (ApiRequestException exception) {
+            throw new ApiRequestException("Something went wrong");
+        }
     }
 
     @DeleteMapping("/{id}")

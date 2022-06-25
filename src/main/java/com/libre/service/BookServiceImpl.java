@@ -8,6 +8,8 @@ import com.libre.util.ModelMapperUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +17,8 @@ import java.util.List;
  * @author Hamza Amentag
  * @since 6/25/2022
  */
+@Service
+@Transactional
 public class BookServiceImpl implements BookService {
 
     private BookRepository bookRepository;
