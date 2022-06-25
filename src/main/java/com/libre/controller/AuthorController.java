@@ -1,7 +1,6 @@
 package com.libre.controller;
 
 import com.libre.dto.AuthorDTO;
-import com.libre.exception.ApiException;
 import com.libre.exception.ApiRequestException;
 import com.libre.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,14 +42,14 @@ public class AuthorController {
         try {
             return new ResponseEntity<>(authorService.getAuthor(id), HttpStatus.OK);
         } catch (ApiRequestException exception) {
-            throw new ApiRequestException("Something went wrong");
+            throw new ApiRequestException("");
         }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteAuthor(@PathVariable Long id) {
         authorService.deleteAuthor(id);
-        return new ResponseEntity<>("User with id " + id + " has been deleted!", HttpStatus.OK);
+        return new ResponseEntity<>("Author with id " + id + " has been deleted!", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

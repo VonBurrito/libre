@@ -41,8 +41,6 @@ public class ModelMapperUtil {
         return entityToDto;
     }
 
-    //////////////
-
     public BookDTO mapToDto(Book book) {
         BookDTO bookDTO = mapper.map(book, BookDTO.class);
         return bookDTO;
@@ -54,7 +52,7 @@ public class ModelMapperUtil {
     }
 
     public List<BookDTO> mapToBookDTOList(List<Book> books) {
-        List<BookDTO> entityToDto = mapper.map(books, new TypeToken<List<AuthorDTO>>() {
+        List<BookDTO> entityToDto = mapper.map(books, new TypeToken<List<BookDTO>>() {
         }.getType());
         return entityToDto;
     }

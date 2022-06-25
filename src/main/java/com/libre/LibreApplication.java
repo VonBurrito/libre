@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class LibreApplication implements CommandLineRunner {
@@ -20,27 +21,29 @@ public class LibreApplication implements CommandLineRunner {
         SpringApplication.run(LibreApplication.class, args);
     }
 
-    @Autowired
-    private BookRepository bookRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
+//    @Autowired
+//    private BookRepository bookRepository;
+//    @Autowired
+//    private AuthorRepository authorRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        Book book = new Book();
-        Author author = new Author();
-        List<Author> authors = new ArrayList<>();
-        List<Book> books = new ArrayList<>();
-        book.setAuthors(authors);
-        book.setTitle("b1");
-        author.setFirstName("firns");
-
-        books.add(book);
-        authors.add(author);
-
-        bookRepository.save(book);
-        author.setBooks(books);
-        authorRepository.save(author);
+//        Book book = new Book();
+//        Author author = new Author();
+//        List<Author> authors = new ArrayList<>();
+//        List<Book> books = new ArrayList<>();
+//        book.setAuthors(authors);
+//        book.setTitle("b1");
+//        author.setFirstName("firns");
+//
+//        books.add(book);
+//        authors.add(author);
+//
+//        bookRepository.save(book);
+//        author.setBooks(books);
+//        authorRepository.save(author);
+//        Book b2 = bookRepository.findByIdAndTitle(7L, "Ali Zawa").get();
+//        System.out.println(b2.getTitle());
 
     }
 }

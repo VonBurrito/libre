@@ -1,5 +1,7 @@
 package com.libre.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -12,10 +14,12 @@ import java.util.List;
 @Entity
 public class Book extends Document {
 
+    @JsonIgnore
     @Column(name = "AUTORS")
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
 
+    @JsonIgnore
     @ManyToMany
     private List<Reservation> reservations;
 

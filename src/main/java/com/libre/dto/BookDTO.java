@@ -12,14 +12,23 @@ import java.util.List;
  */
 public class BookDTO {
 
-    protected Long id;
-    protected String title;
-    protected LocalDate publicationDate;
-    protected String summary;
+    private Long id;
+    private String title;
+    private LocalDate publicationDate;
+    private String summary;
     private List<Author> authors;
     private List<Reservation> reservations;
 
     public BookDTO() {
+    }
+
+    public BookDTO(Long id, String title, LocalDate publicationDate, String summary, List<Author> authors, List<Reservation> reservations) {
+        this.id = id;
+        this.title = title;
+        this.publicationDate = publicationDate;
+        this.summary = summary;
+        this.authors = authors;
+        this.reservations = reservations;
     }
 
     public Long getId() {

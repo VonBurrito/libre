@@ -48,7 +48,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDTO> getBookList() {
-        return modelMapperUtil.mapToBookDTOList(bookRepository.findAll());
+        List<Book> books = bookRepository.findAll();
+        return modelMapperUtil.mapToBookDTOList(books);
     }
 
     @Override
