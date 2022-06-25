@@ -46,12 +46,15 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<AuthorDTO> getAuthorList() {
-        return modelMapperUtil.mapToDto(authorRepository.findAll());
+        return modelMapperUtil.mapToAuthorDTOList(authorRepository.findAll());
     }
 
     @Override
     public void deleteAuthor(Long id) {
-        authorRepository.deleteById(id);
+
+        if (authorRepository.findById(id).isPresent()) {
+            authorRepository.deleteById(id);
+        }
     }
 
     @Override

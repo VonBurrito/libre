@@ -1,7 +1,9 @@
 package com.libre.util;
 
 import com.libre.dto.AuthorDTO;
+import com.libre.dto.BookDTO;
 import com.libre.model.Author;
+import com.libre.model.Book;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,26 @@ public class ModelMapperUtil {
         return author;
     }
 
-    public List<AuthorDTO> mapToDto(List<Author> authors) {
+    public List<AuthorDTO> mapToAuthorDTOList(List<Author> authors) {
         List<AuthorDTO> entityToDto = mapper.map(authors, new TypeToken<List<AuthorDTO>>() {
+        }.getType());
+        return entityToDto;
+    }
+
+    //////////////
+
+    public BookDTO mapToDto(Book book) {
+        BookDTO bookDTO = mapper.map(book, BookDTO.class);
+        return bookDTO;
+    }
+
+    public Book mapToEntity(BookDTO bookDTO) {
+        Book book = mapper.map(bookDTO, Book.class);
+        return book;
+    }
+
+    public List<BookDTO> mapToBookDTOList(List<Book> books) {
+        List<BookDTO> entityToDto = mapper.map(books, new TypeToken<List<AuthorDTO>>() {
         }.getType());
         return entityToDto;
     }
