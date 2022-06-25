@@ -64,4 +64,12 @@ public class AuthorServiceImpl implements AuthorService {
         }
         return null;
     }
+
+    @Override
+    public AuthorDTO getAuthor(Long id) {
+        if (authorRepository.findById(id).isPresent()) {
+            return modelMapperUtil.mapToDto(authorRepository.findById(id).get());
+        }
+        return null;
+    }
 }

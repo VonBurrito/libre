@@ -12,4 +12,6 @@ public interface AuthorService {
     public void deleteAuthor(Long id);
 
     public AuthorDTO updateAuthor(Long id, AuthorDTO authorDTO);
+
+    public AuthorDTO getAuthor(Long id);
 }

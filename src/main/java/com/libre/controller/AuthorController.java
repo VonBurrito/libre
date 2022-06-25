@@ -26,23 +26,28 @@ public class AuthorController {
     }
 
     @PostMapping
-    public ResponseEntity<AuthorDTO> addAuthor(@RequestBody AuthorDTO authorDTO){
+    public ResponseEntity<AuthorDTO> addAuthor(@RequestBody AuthorDTO authorDTO) {
         return new ResponseEntity<>(authorService.addAuthor(authorDTO), HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<AuthorDTO>> getAllAuthors(){
+    public ResponseEntity<List<AuthorDTO>> getAllAuthors() {
         return new ResponseEntity<>(authorService.getAuthorList(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AuthorDTO> getAuthor(@PathVariable Long id) {
+        return new ResponseEntity<>(authorService.getAuthor(id), HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteAuthor(@PathVariable Long id){
+    public ResponseEntity<String> deleteAuthor(@PathVariable Long id) {
         authorService.deleteAuthor(id);
         return new ResponseEntity<>("User with id " + id + " has been deleted!", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AuthorDTO> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO authorDTO){
+    public ResponseEntity<AuthorDTO> updateAuthor(@PathVariable Long id, @RequestBody AuthorDTO authorDTO) {
         return new ResponseEntity<>(authorService.updateAuthor(id, authorDTO), HttpStatus.OK);
     }
 }
