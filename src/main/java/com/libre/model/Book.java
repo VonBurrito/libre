@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @since 6/22/2022
  */
 @Entity
-public class Book extends Document {
+public class Book extends Document implements Serializable {
 
     @JsonIgnore
     @Column(name = "AUTORS")

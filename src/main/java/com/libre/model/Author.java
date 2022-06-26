@@ -1,6 +1,7 @@
 package com.libre.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "AUTHOR")
-public class Author {
+public class Author implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
